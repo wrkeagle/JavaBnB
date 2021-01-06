@@ -14,38 +14,51 @@ public class AppartementService {
     private AppartementRepository repository;
 
 
-    public Appartement saveAppartement(Appartement appartement){
+    public Appartement saveAppartement(Appartement appartement) {
         return repository.save(appartement);
     }
-    public List<Appartement> saveAppartements(List<Appartement> appartements){
+
+    public List<Appartement> saveAppartements(List<Appartement> appartements) {
         return repository.saveAll(appartements);
     }
 
 
-
-    public List<Appartement> getAppartements(){
+    public List<Appartement> getAppartements() {
         return repository.findAll();
     }
-    public Appartement getAppartementById(int id){
+
+    public Appartement getAppartementById(int id) {
         return repository.findById(id).orElse(null);
     }
-    public Appartement getAppartementByName(String name){
+
+    public Appartement getAppartementByName(String name) {
         return repository.findByName(name);
     }
-    public Appartement getAppartementByPays(String pays){
+
+    public Appartement getAppartementByPays(String pays) {
         return repository.findByPays(pays);
     }
-    public Appartement getAppartementByRegion(String region){
+
+    public Appartement getAppartementByRegion(String region) {
         return repository.findByRegion(region);
     }
 
-    public String deleteAppartement(int id){
-        repository.deleteById(id);
-        return "Appartement supprimé."+id;
+    public Appartement getAppartementByLieu(String lieu) {
+        return repository.findByLieu(lieu);
+    }
+    public Appartement getAppartementByVillage(String village) {
+        return repository.findByVillage(village);
     }
 
-    public Appartement updateAppartement(Appartement appartement){
-        Appartement existingAppartement=repository.findById(appartement.getId()).orElse(null);
+    public String deleteAppartement(int id) {
+        repository.deleteById(id);
+        return "Appartement supprimé." + id;
+    }
+
+
+
+    public Appartement updateAppartement(Appartement appartement) {
+        Appartement existingAppartement = repository.findById(appartement.getId()).get();
         existingAppartement.setName(appartement.getName());
         existingAppartement.setDesc(appartement.getDesc());
         existingAppartement.setLieu(appartement.getLieu());
@@ -56,5 +69,7 @@ public class AppartementService {
         existingAppartement.setPrice(appartement.getPrice());
         return repository.save(existingAppartement);
     }
+
+}
 
 

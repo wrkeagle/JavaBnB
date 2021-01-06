@@ -41,26 +41,27 @@ public class AppartementController {
         return service.getAppartementByName(name);
     }
 
-    @GetMapping("/appartement/{desc}")
-    public Appartement findAppartementByDesc(@PathVariable String desc) {
-        return service.getAppartementByDesc(desc);
-    }
+
     @GetMapping("/appartement/{lieu}")
     public Appartement findAppartementByLieu(@PathVariable String lieu) {
         return service.getAppartementByLieu(lieu);
     }
-    @GetMapping("/appartement/{residence}")
-    public Appartement findAppartementByResidence(@PathVariable String residence) {
-        return service.getAppartementByResidence(residence);
-    }
+
+//    @GetMapping("/appartement/{residence}")
+//    public Appartement findAppartementByResidence(@PathVariable String residence) {
+//        return service.getAppartementByResidence(residence);
+//    }
+
     @GetMapping("/appartement/{village}")
     public Appartement findAppartementByVillage(@PathVariable String village) {
         return service.getAppartementByVillage(village);
     }
+
     @GetMapping("/appartement/{region}")
     public Appartement findAppartementByRegion(@PathVariable String region) {
         return service.getAppartementByRegion(region);
     }
+
     @PutMapping("/update")
     public Appartement updateAppartement(@RequestBody Appartement appartement) {
         return service.updateAppartement(appartement);
@@ -70,4 +71,5 @@ public class AppartementController {
     public String deleteAppartement(@PathVariable int id) {
         return service.deleteAppartement(id);
     }
+
 }

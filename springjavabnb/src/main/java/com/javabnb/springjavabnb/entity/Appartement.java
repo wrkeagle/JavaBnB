@@ -29,6 +29,4 @@ public class Appartement {
     private String pays;
     private double price;
 
-
-
 }

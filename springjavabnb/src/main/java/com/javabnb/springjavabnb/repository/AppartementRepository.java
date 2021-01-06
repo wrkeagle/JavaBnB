@@ -9,4 +9,9 @@ public interface AppartementRepository extends JpaRepository<Appartement,Integer
     Appartement findByPays(String pays);
 
     Appartement findByRegion(String region);
+
+    Appartement findByLieu(String lieu);
+
+    Appartement findByVillage(String village);
+
 }
